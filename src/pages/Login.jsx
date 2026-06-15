@@ -1,7 +1,11 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -18,9 +22,21 @@ function Login() {
       );
 
       alert("Login Successful!");
-
-      // Redirect to Dashboard
       navigate("/dashboard");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    if (!email) {
+      alert("Please enter your email first");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Password reset email sent! Check your inbox.");
     } catch (error) {
       alert(error.message);
     }
@@ -103,9 +119,25 @@ function Login() {
             color: "white",
             fontWeight: "bold",
             cursor: "pointer",
+            marginBottom: "10px",
           }}
         >
           Login
+        </button>
+
+        <button
+          onClick={handleResetPassword}
+          style={{
+            width: "100%",
+            padding: "12px",
+            border: "none",
+            borderRadius: "8px",
+            background: "#f1f1f1",
+            color: "#333",
+            cursor: "pointer",
+          }}
+        >
+          Forgot Password?
         </button>
       </div>
     </div>
