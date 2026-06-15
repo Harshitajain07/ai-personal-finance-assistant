@@ -28,11 +28,12 @@ An AI-powered Personal Finance Assistant built with React, Vite, Firebase, Recha
 
 ### Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshot/dashboard.png)
 
 ### Analysis Results
 
-![Results](./screenshots/results.png)
+![Results](./screenshot/result.png)
+
 
 ## Installation
 
@@ -43,8 +44,7 @@ npm run dev
 
 ## Live Demo
 
-Add your Vercel deployment link here.
-
+https://ai-personal-finance-assistant-491i.vercel.app/
 ## Author
 
 Harshita Jain
