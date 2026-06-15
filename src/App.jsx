@@ -1,3 +1,7 @@
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 import { useState } from "react";
 import jsPDF from "jspdf";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
@@ -715,7 +719,7 @@ function App() {
           margin: 0,
         }}
       >
-        {result.emergencyFund}/100
+        ₹{result.emergencyFund}
       </h2>
 
   </div>
